@@ -29,6 +29,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 export class HomeComponent {
   miataTestList: MiataCard[] = [];
+  filteredMiataList: MiataCard[] = [];
   miataService: MiataService = inject(MiataService);
 
   signUpForm = new FormGroup({
@@ -37,7 +38,10 @@ export class HomeComponent {
   });
 
   constructor() {
-    this.miataTestList = this.miataService.getAllMiatas();
+    this.miataService.getAllMiatas().then((miataTestList: MiataCard[]) => {
+      this.miataTestList = miataTestList;
+      this.filteredMiataList = miataTestList
+    })
   }
 
   submitSignUp() {
