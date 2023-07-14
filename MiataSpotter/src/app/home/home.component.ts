@@ -11,17 +11,28 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, MiataCardsComponent, ReactiveFormsModule],
   template: `
   <section class="main-container">
+    <div class="explanation" [ngStyle]="{backgroundImage:'url(./assets/junkyard.avif)'}">
+      <h1>
+      Want text notifications whenever there's a Miata at the Pick N' Pull?
+      </h1>
+    </div>
+    <div class="card-container">
+      <app-miata-cards
+        *ngFor="let miataCard of miataTestList"
+        [miataCard]="miataCard">
+      </app-miata-cards>
+    </div>
     <form [formGroup]="signUpForm" (submit)="submitSignUp()">
-      <label for="first-name">First Name:</label>
-      <input type="text" placeholder="Enter your name..." formControlName="firstName" required>
-      <label for="phone-number">Phone Number:</label>
-      <input type="tel" placeholder="Enter your phone number to get alerts..." pattern="[0-9]{3}[0-9]{3}[0-9]{4}" formControlName="phoneNumber" required>
+      <div class="input-container">
+        <label for="first-name">First Name:</label>
+        <input type="text" placeholder="Enter your name..." formControlName="firstName" required>
+      </div>
+      <div class="input-container">
+        <label for="phone-number">Phone Number:</label>
+        <input type="tel" placeholder="Enter your phone number..." pattern="[0-9]{3}[0-9]{3}[0-9]{4}" formControlName="phoneNumber" required>
+      </div>
       <button class="primary" type="submit" class="primary">Sign Up!</button>
     </form>
-    <app-miata-cards
-      *ngFor="let miataCard of miataTestList"
-      [miataCard]="miataCard">
-    </app-miata-cards>
   </section>
   `,
   styleUrls: ['./home.component.css']

@@ -10,9 +10,11 @@ import { MiataCard } from '../miatacard';
     <section class=listing>
       <img class="listing-photo" [src]="miataCard.photo" alt="photo of a yellow miata">
       <div>
-        <h2 class="listing-heading">Year: {{miataCard.year}} </h2>
-        <p class="listing-location">Color: {{miataCard.color}}\n
-        Available: {{miataCard.available}}</p>
+        <div class="stripe" [style.background]="miataCard.color"></div>
+        <h2 class="listing-heading">Arrived: </h2>
+        <p class="listing-detail">Year: {{miataCard.year}} </p>
+        <p class="listing-detail">Color: {{miataCard.color}}</p>
+        <p class="listing-detail">Available: {{miataCard.available}}</p>
       </div>
     </section>
   `,
