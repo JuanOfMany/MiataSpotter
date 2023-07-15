@@ -1,18 +1,4 @@
-.brand-logo {
-  display: inline-block;
-  max-width:230px;
-  max-height:95px;
-  width: auto;
-  height: auto;
-  margin-right: 40px;
-}
-
-.img-holder {
-  display: flex;
-  justify-content: end;
-}
-
 html {
-  height: 100vh;
-  width: 100vw;
+  margin: 0;
+  padding: 0;
 }

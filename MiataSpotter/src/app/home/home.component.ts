@@ -2,20 +2,17 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MiataCardsComponent } from '../miata-cards/miata-cards.component';
 import { MiataCard } from '../miatacard';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { MiataService } from '../miata.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MiataCardsComponent, ReactiveFormsModule],
+  imports: [CommonModule, MiataCardsComponent, ReactiveFormsModule, HeroDetailComponent],
   template: `
   <section class="main-container">
-    <div class="explanation" [ngStyle]="{backgroundImage:'url(./assets/junkyard.avif)'}">
-      <h1>
-      Want text notifications whenever there's a Miata at the Pick N' Pull?
-      </h1>
-    </div>
+    <app-hero-detail></app-hero-detail>
     <div class="card-container">
       <app-miata-cards
         *ngFor="let miataCard of miataTestList"

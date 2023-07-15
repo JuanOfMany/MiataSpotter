@@ -1,0 +1,26 @@
+.hero-container {
+  height: 50%;
+}
+
+.hero-text{
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.brand-logo {
+  display: inline-block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+  margin-right: 40px;
+  margin-top: 40px;
+}
+
+.img-holder {
+  display: flex;
+  justify-content: end;
+}
