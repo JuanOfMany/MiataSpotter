@@ -20,7 +20,7 @@
   padding-left: 16px;
 }
 .listing-photo {
-  width: 320px;
+  width: 100%;
   max-height: 180px;
   object-fit:cover;
   border-radius: 8px 8px 0 0;

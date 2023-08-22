@@ -19,17 +19,6 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
         [miataCard]="miataCard">
       </app-miata-cards>
     </div>
-    <form [formGroup]="signUpForm" (submit)="submitSignUp()">
-      <div class="input-container">
-        <label for="first-name">First Name:</label>
-        <input type="text" placeholder="Enter your name..." formControlName="firstName" required>
-      </div>
-      <div class="input-container">
-        <label for="phone-number">Phone Number:</label>
-        <input type="tel" placeholder="Enter your phone number..." pattern="[0-9]{3}[0-9]{3}[0-9]{4}" formControlName="phoneNumber" required>
-      </div>
-      <button class="primary" type="submit" class="primary">Sign Up!</button>
-    </form>
   </section>
   `,
   styleUrls: ['./home.component.css']
@@ -40,11 +29,6 @@ export class HomeComponent {
   filteredMiataList: MiataCard[] = [];
   miataService: MiataService = inject(MiataService);
 
-  signUpForm = new FormGroup({
-    firstName: new FormControl(''),
-    phoneNumber: new FormControl('')
-  });
-
   constructor() {
     this.miataService.getAllMiatas().then((miataTestList: MiataCard[]) => {
       this.miataTestList = miataTestList;
@@ -52,10 +36,4 @@ export class HomeComponent {
     })
   }
 
-  submitSignUp() {
-    this.miataService.signUpForNotifications(
-      this.signUpForm.value.firstName ?? '',
-      this.signUpForm.value.phoneNumber ?? ''
-    )
-  }
 }
